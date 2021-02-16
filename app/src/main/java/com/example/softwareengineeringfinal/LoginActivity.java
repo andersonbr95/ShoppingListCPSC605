@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 GoogleSignInAccount signInAccount = signInAccountTask.getResult(ApiException.class);
                 Toast.makeText(this, "Signed in Successfully with your Google Account", Toast.LENGTH_SHORT);
+                startActivity(new Intent (this, MapsActivity.class));
             } catch (ApiException e) {
                 e.printStackTrace();
             }
