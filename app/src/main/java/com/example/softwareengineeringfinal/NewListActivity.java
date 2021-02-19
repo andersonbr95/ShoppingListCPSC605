@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
+
 import java.util.LinkedList;
 
 public class NewListActivity extends AppCompatActivity {
@@ -22,6 +24,9 @@ public class NewListActivity extends AppCompatActivity {
     ListView testList;
     LinkedList<String> link_list;
     private ListView listView;
+    private GoogleMap mMap;
+
+
 
     @Override
     protected void onCreate(Bundle readInstanceState){

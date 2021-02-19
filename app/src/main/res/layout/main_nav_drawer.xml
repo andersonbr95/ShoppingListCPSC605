@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+    android:background="@color/LightBlue"
     android:orientation="vertical">
 
     <ImageView
@@ -10,168 +11,176 @@
         android:layout_height="120dp"
         android:layout_margin="16dp"
         android:onClick="ClickLogo"
-        android:src="@drawable/ic_baseline_android_24"/>
+        android:src="@drawable/ic_baseline_shopping_cart_24"
+        app:tint="@color/white" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:fontFamily="@font/mistral"
         android:text="Our Shoppie"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"/>
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@android:color/holo_blue_light"/>
+        android:background="@android:color/holo_blue_light" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickHome">
+        android:onClick="ClickHome"
+        android:orientation="horizontal"
+        android:background="@color/DarkBlue"
+        >
+
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginVertical="16dp"
             android:layout_weight="1"
-            android:text="Home"
             android:fontFamily="@font/mistral"
             android:padding="12dp"
-            android:layout_marginLeft="16dp"/>
+            android:text="Home" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="48dp"
-            android:src="@drawable/ic_home_24"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:onClick="ClickList">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="My Shopping Lists"
-            android:fontFamily="@font/mistral"
-            android:padding="12dp"
-            android:layout_marginLeft="16dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="48dp"
-            android:src="@drawable/ic_baseline_format_list_numbered_24"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:onClick="ClickShop">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mistral"
-            android:layout_weight="1"
-            android:text="Shop"
-            android:padding="12dp"
-            android:layout_marginLeft="16dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="48dp"
-            android:src="@drawable/ic_baseline_shopping_cart_24"/>
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:onClick="ClickDashBoard">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Dashboard"
-            android:fontFamily="@font/mistral"
-            android:padding="12dp"
-            android:layout_marginLeft="16dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="48dp"
-            android:src="@drawable/ic_baseline_dashboard_24"/>
+            android:src="@drawable/ic_home_24" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickAboutUs">
+        android:onClick="ClickList"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_weight="1"
             android:fontFamily="@font/mistral"
-            android:text="About Us"
             android:padding="12dp"
-            android:layout_marginLeft="16dp"/>
+            android:text="My Shopping Lists" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="48dp"
-            android:src="@drawable/ic_baseline_accessibility_new_24"/>
+            android:src="@drawable/ic_baseline_format_list_numbered_24" />
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="ClickList"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/mistral"
+            android:padding="12dp"
+            android:text="My Shopping Lists" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="48dp"
+            android:scaleX="1.3"
+            android:scaleY="1.3"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:translationX="-4dp" />
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickLogout">
+        android:onClick="ClickDashBoard"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mistral"
+            android:layout_marginLeft="16dp"
             android:layout_weight="1"
-            android:text="Log Out :("
+            android:fontFamily="@font/mistral"
             android:padding="12dp"
-            android:layout_marginLeft="16dp"/>
+            android:text="Dashboard" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="48dp"
-            android:src="@drawable/ic_baseline_exit_to_app_24"/>
+            android:src="@drawable/ic_baseline_dashboard_24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="ClickAboutUs"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/mistral"
+            android:padding="12dp"
+            android:text="About Us" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="48dp"
+            android:src="@drawable/ic_baseline_accessibility_new_24" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="ClickLogout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/mistral"
+            android:padding="12dp"
+            android:text="Log Out :(" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="48dp"
+            android:src="@drawable/ic_baseline_exit_to_app_24" />
 
     </LinearLayout>
 
