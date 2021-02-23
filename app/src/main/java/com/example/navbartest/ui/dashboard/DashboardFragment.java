@@ -25,7 +25,7 @@ public class DashboardFragment extends Fragment {
         dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_list, container, false);
-        final TextView textView = root.findViewById(R.id.text_list);
+        final TextView textView = root.findViewById(R.id.text_home);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

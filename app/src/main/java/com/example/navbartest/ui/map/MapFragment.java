@@ -1,14 +1,18 @@
 package com.example.navbartest.ui.map;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.navbartest.R;
+import com.example.navbartest.ui.list.ListFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -16,15 +20,28 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.Map;
 
+import static android.R.layout.simple_spinner_dropdown_item;
+
+public class MapFragment extends Fragment {
     private MapViewModel mapViewModel;
     private GoogleMap mMap;
+    private Spinner mapFragmentSpinner;
+
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         //initialize the view
+        ArrayList<String> userShoppingList;
         View view = inflater.inflate(R.layout.fragment_map, container, false);
+
+        //set adapter for spinner later
+        //mapFragmentSpinner.findViewById(R.id.sp_item_finder);
+
         ///initialize the map fragment
         SupportMapFragment supportMapFragment = (SupportMapFragment)
                 getChildFragmentManager().findFragmentById(R.id.google_map);
@@ -60,7 +77,6 @@ public class MapFragment extends Fragment {
         //return the view
         return view;
     }
-
 
     /**
      * Manipulates the map once available.

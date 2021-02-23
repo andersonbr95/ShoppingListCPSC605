@@ -16,5 +16,6 @@
     <string name="menu_logout">Log Out</string>
     <string name="menu_view_lists">View Lists</string>
     <string name="menu_view_map">View Map</string>
+    <string name="menu_create_list">Create List</string>
 
 </resources>
