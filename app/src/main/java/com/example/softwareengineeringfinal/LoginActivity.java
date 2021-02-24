@@ -49,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivityForResult(sign, REQUEST_CODE);
             }
         });
-
     }
 
 
@@ -60,11 +59,10 @@ public class LoginActivity extends AppCompatActivity {
 
         if(requestCode == REQUEST_CODE){
             Task<GoogleSignInAccount> signInAccountTask = GoogleSignIn.getSignedInAccountFromIntent(data);
-
             try {
                 GoogleSignInAccount signInAccount = signInAccountTask.getResult(ApiException.class);
                 Toast.makeText(this, "Signed in Successfully with your Google Account", Toast.LENGTH_SHORT);
-                startActivity(new Intent (this, MapsActivity.class));
+                startActivity(new Intent (this, DashboardActivity.class));
             } catch (ApiException e) {
                 e.printStackTrace();
             }
