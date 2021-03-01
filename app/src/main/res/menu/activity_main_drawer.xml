@@ -3,14 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:icon="@drawable/ic_home_24"
+            android:title="@string/menu_home"
+
+            />
+
         <item
             android:id="@+id/nav_about_us"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_accessibility_new_24"
             android:title="@string/menu_about_us"/>
         <item
             android:id="@+id/nav_view_maps"
@@ -18,11 +23,11 @@
             android:title="@string/menu_view_map"/>
         <item
             android:id="@+id/nav_view_lists"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_shopping_cart_24"
             android:title="@string/menu_create_list"/>
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
             android:title="@string/menu_logout"/>
     </group>
 
