@@ -31,6 +31,7 @@ android {
 
 dependencies {
     def multidex_version = "2.0.1"
+    implementation platform('com.google.firebase:firebase-bom:26.6.0')
     implementation "androidx.multidex:multidex:$multidex_version"
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -50,4 +51,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.firebaseui:firebase-ui-auth:7.1.1'
     implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.firebaseui:firebase-ui-auth:6.4.0'
 }
+    apply plugin: 'com.google.gms.google-services'

@@ -34,7 +34,12 @@
             android:title="@string/menu_view_lists"/>
         <item
             android:id="@+id/nav_logout"
+<<<<<<< Updated upstream
             android:icon="@drawable/ic_menu_gallery"
+=======
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
+
+>>>>>>> Stashed changes
             android:title="@string/menu_logout"/>
     </group>
 
