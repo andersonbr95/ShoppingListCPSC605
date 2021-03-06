@@ -5,7 +5,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+
 public class ListViewModel extends ViewModel {
+    
 
     private MutableLiveData<String> mText;
 
@@ -17,4 +20,5 @@ public class ListViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+
 }

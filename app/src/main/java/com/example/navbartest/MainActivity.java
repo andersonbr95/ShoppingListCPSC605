@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.ListFragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -18,9 +19,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private AppBarConfiguration mAppBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,22 +30,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_navbar);
 
 
-        //initialize the fragment
-        Fragment fragment = new MapFragment();
-
-
-
-        /*open fragment
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.map, fragment)
-                .commit();
-        */
+        /*open fragment  for list
+        getSupportFragmentManager().beginTransaction().replace(R.id.map, new ListFragment()).commit();
+         */
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
