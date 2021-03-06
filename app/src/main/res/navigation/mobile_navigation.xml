@@ -7,19 +7,34 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.softwareengineeringfinal.ui.home.HomeFragment"
+        android:name="com.example.navbartest.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.softwareengineeringfinal.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.softwareengineeringfinal.ui.slideshow.SlideshowFragment"
+        android:name="com.example.navbartest.ui.shop.ShopFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.example.navbartest.ui.aboutus.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_us"/>
+    <fragment
+        android:id="@+id/nav_view_maps"
+        android:name="com.example.navbartest.ui.map.MapFragment"
+        android:label="Maps"
+        tools:layout="@layout/fragment_map"/>
+    <fragment
+        android:id="@+id/nav_view_lists"
+        android:name="com.example.navbartest.ui.list.ListFragment"
+        android:label="Lists"
+        tools:layout="@layout/fragment_list"/>
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.navbartest.ui.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard"/>
+
+
 </navigation>
