@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class ListFragment extends Fragment {
    private EditText editUserText;
-   Button addItemButton;
+   Button addItemButton, refreshListButton;
     ListView listFragmentListView;
     ArrayAdapter<String> listFragmentArrayAdapter;
     ArrayList<String> userShoppingList;
@@ -40,6 +40,7 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         addItemButton = view.findViewById(R.id.add_item);
         editUserText = view.findViewById(R.id.edit_user_list);
+        refreshListButton = view.findViewById(R.id.refresh);
 
 
         listFragmentListView = (ListView) view.findViewById(R.id.idListFragmentListView);
@@ -55,7 +56,17 @@ public class ListFragment extends Fragment {
                 listFragmentArrayAdapter.notifyDataSetChanged();
             }
         });
+
+        refreshListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               userShoppingList.clear();
+               listFragmentArrayAdapter.notifyDataSetChanged();
+            }
+        });
         return view;
+
+
     }
 
     public void updateEditText(String newText){
