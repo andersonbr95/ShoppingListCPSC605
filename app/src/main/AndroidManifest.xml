@@ -28,7 +28,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity"
-            tools:ignore="Instantiatable" />
+            tools:ignore="Instantiatable">
+
+
+        </activity>
 
 
     </application>
