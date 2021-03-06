@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class ListFragment extends Fragment {
    private EditText editUserText;
-   Button addItemButton;
+   Button addItemButton, refreshListButton;
    Button addListButton;
    ListView listFragmentListView;
    ArrayAdapter<String> listFragmentArrayAdapter;
@@ -58,6 +58,16 @@ public class ListFragment extends Fragment {
                 listFragmentArrayAdapter.notifyDataSetChanged();
             }
         });
+        refreshListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shoppingList.clear();
+                listFragmentArrayAdapter.notifyDataSetChanged();
+                }
+            });
+
+
+
         /* Will add the list items and navigate to the map fragment */
         addListButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
