@@ -20,9 +20,11 @@
         android:translationX="20dp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
+        android:layout_width="426dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:textAlignment="center"
         android:translationX="58dp">
 
         <Button
@@ -33,16 +35,16 @@
             android:paddingHorizontal="10dp"
             android:text="Add Item" />
 
-            <Button
-                android:id="@+id/add_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity=""
-                android:text="Add List" />
-                
+        <Button
+            android:id="@+id/add_list"
+            android:layout_width="87dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:text="Find Items" />
+
         <Button
             android:id="@+id/refresh"
-            android:layout_width="wrap_content"
+            android:layout_width="59dp"
             android:layout_height="wrap_content"
 
             android:paddingHorizontal="10dp"
@@ -50,7 +52,7 @@
 
         <Button
             android:id="@+id/find"
-            android:layout_width="wrap_content"
+            android:layout_width="72dp"
             android:layout_height="wrap_content"
 
             android:paddingHorizontal="10dp"
@@ -59,10 +61,9 @@
 
     <ListView
         android:id="@+id/idListFragmentListView"
-        android:layout_width="337dp"
-        android:layout_height="510dp"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
-
-        android:translationX="40dp"
-        />
+        android:gravity="center_horizontal|left"
+        android:translationX="40dp" />
 </LinearLayout>
