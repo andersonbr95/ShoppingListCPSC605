@@ -23,17 +23,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:translationX="58dp">
+        android:translationX="20dp">
 
         <Button
             android:id="@+id/add_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingHorizontal="10dp"
+            android:paddingHorizontal="8dp"
             android:text="Add Item" />
 
-            <Button
+        <Button
                 android:id="@+id/add_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingHorizontal="10dp"
+            android:paddingHorizontal="8dp"
             android:text="Refresh" />
 
         <Button
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingHorizontal="10dp"
+            android:paddingHorizontal="8dp"
             android:text="Save List" />
     </LinearLayout>
 
