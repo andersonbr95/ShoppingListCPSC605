@@ -37,6 +37,7 @@ public class EditListDialog extends AppCompatDialogFragment {
 
                     }
                 })
+
                 .setPositiveButton("Save List", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -44,7 +45,6 @@ public class EditListDialog extends AppCompatDialogFragment {
                         listener.applyTexts(listName);
                     }
                 });
-
         editListName = view.findViewById(R.id.edit_list_name);
         return builder.create();
     }

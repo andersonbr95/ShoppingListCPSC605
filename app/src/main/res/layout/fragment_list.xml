@@ -10,14 +10,28 @@
 
 
     <EditText
+        android:id="@+id/enter_list_name"
+        android:layout_width="371dp"
+        android:layout_height="35dp"
+        android:autofillHints="Name List"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/white"
+        android:textAlignment="center"
+        android:hint="Name List (Optional)"
+        android:translationX="20dp" />
+
+    <EditText
         android:id="@+id/edit_user_list"
         android:layout_width="371dp"
         android:layout_height="41dp"
-        android:autofillHints=""
+        android:autofillHints="Enter Item"
         android:background="@drawable/rounded_corner"
         android:backgroundTint="@color/white"
-        android:hint="Enter Name"
-        android:translationX="20dp" />
+        android:hint="Enter Item"
+        android:textAlignment="center"
+
+        android:translationX="20dp"
+        />
 
     <LinearLayout
         android:layout_width="426dp"
@@ -62,8 +76,8 @@
     <ListView
         android:id="@+id/idListFragmentListView"
         android:layout_width="351dp"
-        android:layout_height="wrap_content"
+        android:layout_height="630dp"
         android:background="@color/white"
         android:gravity="center_horizontal|left"
-        android:translationX="40dp" />
+        android:translationX="30dp" />
 </LinearLayout>

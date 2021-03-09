@@ -9,6 +9,7 @@ import androidx.navigation.Navigation;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class ListFragment extends Fragment implements EditListDialog.ListNameDialogListener{
-   private EditText editUserText;
+   private EditText editUserText,editListName;
    Button addItemButton, refreshListButton, saveListButton;
    Button addListButton;
    ListView listFragmentListView;
@@ -35,7 +36,6 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
    private DatabaseReference listDatabase;
 
    Bundle bundle = new Bundle();
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,8 +46,10 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
         addItemButton = view.findViewById(R.id.add_item);
         addListButton = view.findViewById(R.id.add_list);
         editUserText = view.findViewById(R.id.edit_user_list);
+        editListName = view.findViewById(R.id.enter_list_name);
         refreshListButton = view.findViewById(R.id.refresh);
         saveListButton = view.findViewById(R.id.find);
+
 
 
         listFragmentListView = (ListView) view.findViewById(R.id.idListFragmentListView);
@@ -68,6 +70,7 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
                 listFragmentArrayAdapter.notifyDataSetChanged();
             }
         });
+
         refreshListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,9 +82,17 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
         saveListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 listDatabase = FirebaseDatabase.getInstance().getReference();
+                String listName = editListName.getText().toString();
                 //openNameListDialog();
-                saveList();
+                //saveList();
+                int i = 0;
+                while(shoppingList.size() > i){
+                    listDatabase.child(listName).child("item " + (i+1)).setValue(shoppingList.get(i));
+                    i++;
+                }
+                listDatabase.push();
 
                 listFragmentArrayAdapter.notifyDataSetChanged();
             }
@@ -96,9 +107,8 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
             }
         });
         return view;
-
-
     }
+
     public void openNameListDialog(){
         EditListDialog editListName = new EditListDialog();
         editListName.show(getParentFragmentManager(), "set list name");
@@ -106,15 +116,15 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
 
     @Override
     public void applyTexts(String listName) {
-        //saveList(listName);
+        
     }
 
     public void saveList(){
-
         int i = 0;
         while(shoppingList.size() > i){
-            listDatabase.push().child("list").child("item " + (i+1)).setValue(shoppingList.get(i));
+            listDatabase.child("list name").child("item " + (i+1)).setValue(shoppingList.get(i));
             i++;
         }
+        listDatabase.push();
     }
 }
