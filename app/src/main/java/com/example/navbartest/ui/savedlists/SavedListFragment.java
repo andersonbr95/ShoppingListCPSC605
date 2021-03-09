@@ -1,4 +1,4 @@
-package com.example.navbartest.ui.shop;
+package com.example.navbartest.ui.savedlists;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.navbartest.R;
 
-public class ShopFragment extends Fragment {
+public class SavedListFragment extends Fragment {
 
-    private ShopViewModel shopViewModel;
+    private SavedListViewModel savedListViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shopViewModel =
-                new ViewModelProvider(this).get(ShopViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_shop);
-        shopViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        savedListViewModel =
+                new ViewModelProvider(this).get(SavedListViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_savedlist, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        savedListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
