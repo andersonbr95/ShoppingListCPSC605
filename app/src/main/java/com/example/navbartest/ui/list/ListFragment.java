@@ -1,36 +1,130 @@
 package com.example.navbartest.ui.list;
 
-import androidx.fragment.app.Fragment;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.Navigation;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import com.example.navbartest.R;
+import com.example.navbartest.ui.map.MapFragment;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class ListFragment extends Fragment {
+import java.util.ArrayList;
 
-    private ListViewModel listViewModel;
+public class ListFragment extends Fragment implements EditListDialog.ListNameDialogListener{
+   private EditText editUserText,editListName;
+   Button addItemButton, refreshListButton, saveListButton;
+   Button addListButton;
+   ListView listFragmentListView;
+   ArrayAdapter<String> listFragmentArrayAdapter;
+   ArrayList<String> shoppingList;
+   private DatabaseReference listDatabase;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        listViewModel =
-                new ViewModelProvider(this).get(ListViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_list, container, false);
-        final TextView textView = root.findViewById(R.id.text_list);
-        listViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+   Bundle bundle = new Bundle();
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState){
+        shoppingList = new ArrayList<String>();
+
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        addItemButton = view.findViewById(R.id.add_item);
+        addListButton = view.findViewById(R.id.add_list);
+        editUserText = view.findViewById(R.id.edit_user_list);
+        editListName = view.findViewById(R.id.enter_list_name);
+        refreshListButton = view.findViewById(R.id.refresh);
+        saveListButton = view.findViewById(R.id.find);
+
+
+
+        listFragmentListView = (ListView) view.findViewById(R.id.idListFragmentListView);
+        listFragmentArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, shoppingList);
+        listFragmentListView.setAdapter(listFragmentArrayAdapter);
+
+
+
+        addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View v) {
+                String userItem = editUserText.getText().toString();
+                String[] items = userItem.split("\n");
+                for(String item : items){
+                    shoppingList.add(item);
+                }
+                editUserText.setText("");
+                listFragmentArrayAdapter.notifyDataSetChanged();
             }
         });
-        return root;
+
+        refreshListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shoppingList.clear();
+                listFragmentArrayAdapter.notifyDataSetChanged();
+                }
+            });
+
+        saveListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                listDatabase = FirebaseDatabase.getInstance().getReference();
+                String listName = editListName.getText().toString();
+                //openNameListDialog();
+                //saveList();
+                int i = 0;
+                while(shoppingList.size() > i){
+                    listDatabase.child(listName).child("item " + (i+1)).setValue(shoppingList.get(i));
+                    i++;
+                }
+                listDatabase.push();
+
+                listFragmentArrayAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+        /* Will add the list items and navigate to the map fragment */
+        addListButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                bundle.putStringArrayList("list", shoppingList);
+                Navigation.findNavController(view).navigate(R.id.nav_view_maps, bundle);
+            }
+        });
+        return view;
+    }
+
+    public void openNameListDialog(){
+        EditListDialog editListName = new EditListDialog();
+        editListName.show(getParentFragmentManager(), "set list name");
+    }
+
+    @Override
+    public void applyTexts(String listName) {
+        
+    }
+
+    public void saveList(){
+        int i = 0;
+        while(shoppingList.size() > i){
+            listDatabase.child("list name").child("item " + (i+1)).setValue(shoppingList.get(i));
+            i++;
+        }
+        listDatabase.push();
     }
 }

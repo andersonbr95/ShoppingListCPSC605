@@ -1,0 +1,4 @@
+#Sun Feb 21 16:03:44 CST 2021
+base.0=/Users/bryananderson/AndroidStudioProjects/ShoppingListCPSC605/temp_navdrawer/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -10,11 +10,7 @@
         android:name="com.example.navbartest.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.navbartest.ui.shop.ShopFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+
     <fragment
         android:id="@+id/nav_about_us"
         android:name="com.example.navbartest.ui.aboutus.AboutUsFragment"
@@ -30,6 +26,11 @@
         android:name="com.example.navbartest.ui.list.ListFragment"
         android:label="Lists"
         tools:layout="@layout/fragment_list"/>
+    <fragment
+        android:id="@+id/nav_saved_lists"
+        android:name="com.example.navbartest.ui.savedlists.SavedListFragment"
+        android:label="Saved Lists"
+        tools:layout="@layout/fragment_savedlist" />
     <fragment
         android:id="@+id/nav_dashboard"
         android:name="com.example.navbartest.ui.dashboard.DashboardFragment"

@@ -11,7 +11,7 @@ public class AboutUsViewModel extends ViewModel {
 
     public AboutUsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is about us fragment");
+        mText.setValue("LorumIpsum");
     }
 
     public LiveData<String> getText() {
