@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/LightBlue"
-    tools:context=".MainActivity">
+    android:background="@drawable/ic_app_login_wave_blue"
+    android:padding="8dp"
+    tools:context=".MainActivity"
+    android:gravity="center_horizontal">
 
 
     <EditText
@@ -17,67 +19,72 @@
         android:background="@drawable/rounded_corner"
         android:backgroundTint="@color/white"
         android:textAlignment="center"
+
         android:hint="Name List (Optional)"
-        android:translationX="20dp" />
+
+        />
 
     <EditText
         android:id="@+id/edit_user_list"
         android:layout_width="371dp"
-        android:layout_height="41dp"
+        android:layout_height="35dp"
         android:autofillHints="Enter Item"
         android:background="@drawable/rounded_corner"
         android:backgroundTint="@color/white"
         android:hint="Enter Item"
         android:textAlignment="center"
-
-        android:translationX="20dp"
-        />
+        android:translationY="5dp" />
 
     <LinearLayout
-        android:layout_width="426dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:textAlignment="center"
-        android:translationX="58dp">
+        android:translationY="5dp">
 
         <Button
             android:id="@+id/add_item"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-
             android:paddingHorizontal="10dp"
-            android:text="Add Item" />
+            android:text="Add Item"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/add_list"
-            android:layout_width="87dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity=""
-            android:text="Find Items" />
+            android:text="Search"
+            android:textSize="12sp"
+            android:padding="2dp"
+            />
 
         <Button
             android:id="@+id/refresh"
-            android:layout_width="59dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-
             android:paddingHorizontal="10dp"
-            android:text="Refresh" />
+            android:text="Refresh"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/find"
-            android:layout_width="72dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-
             android:paddingHorizontal="10dp"
-            android:text="Save List" />
+            android:text="Save List"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/idListFragmentListView"
-        android:layout_width="351dp"
+        android:layout_width="350dp"
         android:layout_height="630dp"
         android:background="@color/white"
         android:gravity="center_horizontal|left"
-        android:translationX="30dp" />
+        android:translationY="5dp"
+        />
 </LinearLayout>
