@@ -107,7 +107,6 @@ public class MapFragment extends Fragment {
                 currentLoc = new LatLng(currentLat, currentLong);
                 mMap.addMarker(new MarkerOptions().position(currentLoc).title("Lewis University"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLoc));
-
                 //when map is loaded
                 mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                     @Override

@@ -113,11 +113,11 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
         /* Will add the list items and navigate to the map fragment */
         addListButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                bundle.putStringArrayList("list", shoppingList);
-                shared.getListData().observe(getViewLifecycleOwner(), list -> {
+                if (!shoppingList.isEmpty() ) {
+                    bundle.putStringArrayList("list", shoppingList);
                     shared.addList(shoppingList);
-                });
-                Navigation.findNavController(view).navigate(R.id.nav_view_maps, bundle);
+                    Navigation.findNavController(view).navigate(R.id.nav_view_maps, bundle);
+                }
             }
         });
 
