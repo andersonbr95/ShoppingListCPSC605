@@ -2,14 +2,17 @@ package com.example.navbartest;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SharedMemory;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 
-import com.example.navbartest.ui.map.MapFragment;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -21,6 +24,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -28,8 +33,13 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import com.google.android.libraries.places.api.Places;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -39,15 +49,22 @@ public class MainActivity extends AppCompatActivity {
     Button button;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navbar);
+        Places.initialize(getApplicationContext(), getResources().getString(R.string.google_maps_key));
+        PlacesClient placesClient = Places.createClient(this);
+        final SharedViewModel shared = new ViewModelProvider(this).get(SharedViewModel.class);
+        shared.getListData().observe(this, new Observer<ArrayList<String>>() {
+            @Override
+            public void onChanged(ArrayList<String> strings) {
+                shared.getList();
+            }
+        });
 
 
-
-        //initialize the fragment
-        Fragment fragment = new MapFragment();
         /*open fragment
         getSupportFragmentManager()
                 .beginTransaction()
@@ -93,4 +110,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

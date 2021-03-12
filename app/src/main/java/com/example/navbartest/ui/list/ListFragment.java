@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.app.AlertDialog;
@@ -20,7 +23,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.navbartest.R;
-import com.example.navbartest.ui.map.MapFragment;
+import com.example.navbartest.SharedViewModel;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,15 +37,23 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
    ArrayAdapter<String> listFragmentArrayAdapter;
    ArrayList<String> shoppingList;
    private DatabaseReference listDatabase;
+   SharedViewModel shared;
+
 
    Bundle bundle = new Bundle();
 
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        shoppingList = new ArrayList<String>();
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
+
+        return view;
+    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        shoppingList = new ArrayList<String>();
+        shared = new ViewModelProvider(this).get(SharedViewModel.class);
+
         addItemButton = view.findViewById(R.id.add_item);
         addListButton = view.findViewById(R.id.add_list);
         editUserText = view.findViewById(R.id.edit_user_list);
@@ -76,8 +87,8 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
             public void onClick(View v) {
                 shoppingList.clear();
                 listFragmentArrayAdapter.notifyDataSetChanged();
-                }
-            });
+            }
+        });
 
         saveListButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,10 +114,14 @@ public class ListFragment extends Fragment implements EditListDialog.ListNameDia
         addListButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 bundle.putStringArrayList("list", shoppingList);
+                shared.getListData().observe(getViewLifecycleOwner(), list -> {
+                    shared.addList(shoppingList);
+                });
                 Navigation.findNavController(view).navigate(R.id.nav_view_maps, bundle);
             }
         });
-        return view;
+
+
     }
 
     public void openNameListDialog(){
